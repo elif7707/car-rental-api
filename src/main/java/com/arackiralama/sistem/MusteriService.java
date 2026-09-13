@@ -1,0 +1,23 @@
+package com.arackiralama.sistem;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class MusteriService {
+
+    private final MusteriRepository musteriRepository;
+
+    public List<Musteri> musteriBilgisiGetir() {
+        return musteriRepository.findAll();
+    }
+
+    public Save<Musteri> yeniMusteriEkle() {
+        return musteriRepository.save();
+    }
+
+}
