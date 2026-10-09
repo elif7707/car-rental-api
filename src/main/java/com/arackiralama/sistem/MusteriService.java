@@ -16,8 +16,8 @@ public class MusteriService {
         return musteriRepository.findAll();
     }
 
-    public Save<Musteri> yeniMusteriEkle() {
-        return musteriRepository.save();
+    public Musteri yeniMusteriEkle(Musteri musteri) {
+        return musteriRepository.save(musteri);
     }
 
 }
