@@ -3,6 +3,8 @@ package com.arackiralama.sistem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class SubeService {
@@ -13,5 +15,4 @@ public class SubeService {
         return subeRepository.findAll();
     }
 
-    public
 }
