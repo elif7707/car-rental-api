@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import jakarta.persistence.GenerationType;
 
 @Entity
 @Table(name = "kiralamalar")
@@ -17,5 +18,6 @@ import lombok.Setter;
 public class Kiralama {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 }
