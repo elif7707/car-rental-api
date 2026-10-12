@@ -27,6 +27,6 @@ public class AracController {
     // HTTP GET isteği geldiğinde tüm araçları listeleyen kapı
     @GetMapping
     public List<Arac> tumAraclariGetir() {
-        return aracService.tumAraclarıGetir();
+        return aracService.tumAraclariGetir();
     }
 }

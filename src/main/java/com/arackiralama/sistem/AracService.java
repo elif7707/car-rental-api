@@ -9,7 +9,7 @@ public class AracService {
     // 'final' yaparak bu yardımcının sonradan hiç değiştirilmemesini garantiye alıyoruz.
     private final AracRepository aracRepository;
 
-    public List<Arac> tumAraclarıGetir() {
+    public List<Arac> tumAraclariGetir() {
         return aracRepository.findAll();
     }
 
