@@ -13,6 +13,11 @@ public class AracService {
         return aracRepository.findAll();
     }
 
+    public Arac aracGetir(Long id) {
+        return aracRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Car not found with id: " + id));
+    }
+
     // public: This method can be accessed from outside.
     // List<Arac>: A list of vehicles will be returned.
     // findAll(): not a function you defined yourself, but one provided out-of-the-box by Spring Data JPA (JpaRepository).
