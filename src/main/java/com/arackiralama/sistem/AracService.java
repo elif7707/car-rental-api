@@ -39,5 +39,11 @@ public class AracService {
         return aracRepository.save(mevcut);
     }
 
+    public void aracSil(Long id){
+
+       Arac silinecekArac = aracGetir(id);
+       aracRepository.delete(silinecekArac);
+    }
+
 
 }
