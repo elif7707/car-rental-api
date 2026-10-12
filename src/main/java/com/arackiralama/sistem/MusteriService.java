@@ -12,11 +12,11 @@ public class MusteriService {
 
     private final MusteriRepository musteriRepository;
 
-    public List<Musteri> musteriBilgisiGetir() {
+    public List<Musteri> tumMusterileriGetir() {
         return musteriRepository.findAll();
     }
 
-    public Musteri yeniMusteriEkle(Musteri musteri) {
+    public Musteri musteriEkle(Musteri musteri) {
         return musteriRepository.save(musteri);
     }
 
