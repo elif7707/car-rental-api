@@ -26,5 +26,18 @@ public class AracService {
         return aracRepository.save(arac);
     }
 
+    public Arac aracGuncelle(Long id, Arac yeniBilgiler) {
+        Arac mevcut = aracGetir(id);
+
+        mevcut.setMarka(yeniBilgiler.getMarka());
+        mevcut.setModel(yeniBilgiler.getModel());
+        mevcut.setGunlukFiyat(yeniBilgiler.getGunlukFiyat());
+        mevcut.setYil(yeniBilgiler.getYil());
+        mevcut.setSegment(yeniBilgiler.getSegment());
+        mevcut.setMusaitMi(yeniBilgiler.getMusaitMi());
+
+        return aracRepository.save(mevcut);
+    }
+
 
 }
