@@ -22,5 +22,9 @@ public class AracService {
                 .orElseThrow(() -> new RuntimeException("Car not found with id: " + id));
     }
 
+    public Arac aracEkle(Arac arac){
+        return aracRepository.save(arac);
+    }
+
 
 }
