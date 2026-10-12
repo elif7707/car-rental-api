@@ -1,7 +1,10 @@
 package com.arackiralama.sistem;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AracService {
@@ -22,7 +25,7 @@ public class AracService {
                 .orElseThrow(() -> new RuntimeException("Car not found with id: " + id));
     }
 
-    public Arac aracEkle(Arac arac){
+    public Arac aracEkle(Arac arac) {
         return aracRepository.save(arac);
     }
 
@@ -39,10 +42,10 @@ public class AracService {
         return aracRepository.save(mevcut);
     }
 
-    public void aracSil(Long id){
+    public void aracSil(Long id) {
 
-       Arac silinecekArac = aracGetir(id);
-       aracRepository.delete(silinecekArac);
+        Arac silinecekArac = aracGetir(id);
+        aracRepository.delete(silinecekArac);
     }
 
 
