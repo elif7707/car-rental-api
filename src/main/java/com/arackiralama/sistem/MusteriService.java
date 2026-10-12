@@ -20,4 +20,9 @@ public class MusteriService {
         return musteriRepository.save(musteri);
     }
 
+    public Musteri musteriGetir(Long id){
+        return musteriRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Car not found with id: " + id));
+    }
+
 }
