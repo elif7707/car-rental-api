@@ -20,12 +20,12 @@ public class MusteriService {
         return musteriRepository.save(musteri);
     }
 
-    public Musteri musteriGetir(Long id){
+    public Musteri musteriGetir(Long id) {
         return musteriRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Car not found with id: " + id));
     }
 
-    public void musteriGuncelle(Long id, Musteri yeniMusteriBilgileri){
+    public void musteriGuncelle(Long id, Musteri yeniMusteriBilgileri) {
 
         Musteri mevcut = musteriGetir(id);
 
@@ -37,6 +37,10 @@ public class MusteriService {
 
     }
 
+    public void musteriSil(Long id) {
 
+        Musteri silinecekMusteri = musteriGetir(id);
+        musteriRepository.delete(silinecekMusteri);
+    }
 
 }
