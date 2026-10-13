@@ -22,6 +22,9 @@ public class SubeService {
     }
 
 
+    public Sube subeEkle(Sube sube){
+        return subeRepository.save(sube); // Return the saved branch (şube) so the caller can get its generated id.
+    }
 
 
 }
