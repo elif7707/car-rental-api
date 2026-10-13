@@ -47,4 +47,9 @@ public class AracController {
     public Arac aracGuncelle(@PathVariable Long id, @RequestBody Arac yeniBilgiler) {
         return aracService.aracGuncelle(id, yeniBilgiler);
     }
+
+    @DeleteMapping("/{id}")
+    public void aracSil(@PathVariable Long id) {
+        aracService.aracSil(id);
+    }
 }
