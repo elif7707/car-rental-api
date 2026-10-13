@@ -37,5 +37,10 @@ public class SubeService {
         return subeRepository.save(mevcut);
     }
 
+    public void subeSil(Long id){
+        Sube silinecekSube = subeGetir(id);
+        subeRepository.delete(silinecekSube);
+    }
+
 
 }
