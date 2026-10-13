@@ -5,10 +5,7 @@ package com.arackiralama.sistem; // Dosyanın projedeki adresidir. Tıpkı bir e
 //Spring Boot'un bize sunduğu hazır araçları (@RestController, @GetMapping vb.) ve Java'nın
 // liste yapısını (List) bu dosyanın içinde kullanabilmemiz için içeri aktarır (çağırır).
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,5 +36,10 @@ public class AracController {
     @GetMapping("/{id}")
     public Arac aracGetir(@PathVariable Long id) {
         return aracService.aracGetir(id);
+    }
+
+    @PostMapping
+    public Arac aracEkle(@RequestBody Arac arac) {
+        return aracService.aracEkle(arac);
     }
 }
