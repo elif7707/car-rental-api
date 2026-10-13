@@ -42,4 +42,9 @@ public class AracController {
     public Arac aracEkle(@RequestBody Arac arac) {
         return aracService.aracEkle(arac);
     }
+
+    @PutMapping("/{id}")
+    public Arac aracGuncelle(@PathVariable Long id, @RequestBody Arac yeniBilgiler) {
+        return aracService.aracGuncelle(id, yeniBilgiler);
+    }
 }
