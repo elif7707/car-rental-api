@@ -11,8 +11,17 @@ public class SubeService {
 
     private final SubeRepository subeRepository; // // We call our repository to perform database operations.
 
-    public List<Sube> subeleriGetir(){
+    public List<Sube> tumSubeleriGetir(){
+
         return subeRepository.findAll();
     }
+
+    public Sube subeGetir(Long id){
+            return subeRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Branch not found with id: " + id));
+    }
+
+
+
 
 }

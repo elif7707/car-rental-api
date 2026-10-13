@@ -13,6 +13,7 @@ public class MusteriService {
     private final MusteriRepository musteriRepository;
 
     public List<Musteri> tumMusterileriGetir() {
+
         return musteriRepository.findAll();
     }
 
