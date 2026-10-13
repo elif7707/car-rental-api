@@ -26,6 +26,7 @@ public class AracService {
     }
 
     public Arac aracEkle(Arac arac) {
+
         return aracRepository.save(arac);
     }
 
