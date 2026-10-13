@@ -22,19 +22,19 @@ public class MusteriService {
 
     public Musteri musteriGetir(Long id) {
         return musteriRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Car not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("Customer not found with id: " + id));
     }
 
-    public void musteriGuncelle(Long id, Musteri yeniMusteriBilgileri) {
+    public Musteri musteriGuncelle(Long id, Musteri yeniMusteriBilgileri) {
 
         Musteri mevcut = musteriGetir(id);
 
         mevcut.setAd(yeniMusteriBilgileri.getAd());
-        mevcut.setId(yeniMusteriBilgileri.getId());
         mevcut.setYas(yeniMusteriBilgileri.getYas());
         mevcut.setSoyad(yeniMusteriBilgileri.getSoyad());
         mevcut.setEhliyetYili(yeniMusteriBilgileri.getEhliyetYili());
 
+        return musteriRepository.save(mevcut); // to write the changes on db, we should save it. Otherwise it will stay only in the memory of Java.
     }
 
     public void musteriSil(Long id) {
