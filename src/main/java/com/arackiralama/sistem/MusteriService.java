@@ -25,4 +25,18 @@ public class MusteriService {
                 .orElseThrow(() -> new RuntimeException("Car not found with id: " + id));
     }
 
+    public void musteriGuncelle(Long id, Musteri yeniMusteriBilgileri){
+
+        Musteri mevcut = musteriGetir(id);
+
+        mevcut.setAd(yeniMusteriBilgileri.getAd());
+        mevcut.setId(yeniMusteriBilgileri.getId());
+        mevcut.setYas(yeniMusteriBilgileri.getYas());
+        mevcut.setSoyad(yeniMusteriBilgileri.getSoyad());
+        mevcut.setEhliyetYili(yeniMusteriBilgileri.getEhliyetYili());
+
+    }
+
+
+
 }
