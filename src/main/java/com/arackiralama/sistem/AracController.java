@@ -20,7 +20,7 @@ public class AracController {
 
     private final AracService aracService;
 
-    // Kurucu Metot (Constructor Injection) ile Aşçımızı (Service) garsona bağlıyoruz
+    // Constructor method ile Service'e bağlıyoruz
     public AracController(AracService aracService) {
 
         this.aracService = aracService;
