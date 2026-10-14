@@ -26,7 +26,21 @@ Built with Java 21, Spring Boot and MySQL.
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/api/araclar` | List all cars |
+| GET | `/api/araclar` | List all cars |
+| GET | `/api/araclar/{id}` | Get a car by id |
+| POST | `/api/araclar` | Add a new car |
+| PUT | `/api/araclar/{id}` | Update a car |
+| DELETE | `/api/araclar/{id}` | Delete a car |
+| GET | `/api/musteriler` | List all customers |
+| GET | `/api/musteriler/{id}` | Get a customer by id |
+| POST | `/api/musteriler` | Add a new customer |
+| PUT | `/api/musteriler/{id}` | Update a customer |
+| DELETE | `/api/musteriler/{id}` | Delete a customer |
+| GET | `/api/subeler` | List all branches |
+| GET | `/api/subeler/{id}` | Get a branch by id |
+| POST | `/api/subeler` | Add a new branch |
+| PUT | `/api/subeler/{id}` | Update a branch |
+| DELETE | `/api/subeler/{id}` | Delete a branch |
 
 More endpoints will be added as the project grows.
 
@@ -64,6 +78,6 @@ The `arackiralama` database is created automatically on first run.
 
 ## Roadmap
 
-- [ ] CRUD operations for all entities
+- [x] CRUD operations for all entities
 - [ ] Rental feature linking customers, cars and branches
 - [ ] Docker support
