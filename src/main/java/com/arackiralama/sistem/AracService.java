@@ -22,7 +22,7 @@ public class AracService {
 
     public Arac aracGetir(Long id) {
         return aracRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Car not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Car not found with id: " + id));
     }
 
     public Arac aracEkle(Arac arac) {

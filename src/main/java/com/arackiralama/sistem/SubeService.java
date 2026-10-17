@@ -18,7 +18,7 @@ public class SubeService {
 
     public Sube subeGetir(Long id){
             return subeRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Branch not found with id: " + id));
+                    .orElseThrow(() -> new ResourceNotFoundException("Branch not found with id: " + id));
     }
 
 

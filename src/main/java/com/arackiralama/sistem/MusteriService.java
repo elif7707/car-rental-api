@@ -23,7 +23,7 @@ public class MusteriService {
 
     public Musteri musteriGetir(Long id) {
         return musteriRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Customer not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with id: " + id));
     }
 
     public Musteri musteriGuncelle(Long id, Musteri yeniMusteriBilgileri) {
