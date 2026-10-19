@@ -44,6 +44,19 @@ Built with Java 21, Spring Boot and MySQL.
 
 More endpoints will be added as the project grows.
 
+## Error Handling
+
+When a requested resource does not exist, the API returns `404 Not Found` with a JSON body:
+
+```json
+{
+  "status": 404,
+  "message": "Car not found with id: 999"
+}
+```
+
+This applies to `GET`, `PUT` and `DELETE` requests on `/api/araclar/{id}`, `/api/musteriler/{id}` and `/api/subeler/{id}`.
+
 ## Getting Started
 
 ### Prerequisites
@@ -79,5 +92,6 @@ The `arackiralama` database is created automatically on first run.
 ## Roadmap
 
 - [x] CRUD operations for all entities
+- [x] Error handling (404 for missing resources)
 - [ ] Rental feature linking customers, cars and branches
 - [ ] Docker support
