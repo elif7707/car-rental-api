@@ -1,13 +1,11 @@
 package com.arackiralama.sistem;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import jakarta.persistence.GenerationType;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "kiralamalar")
@@ -20,4 +18,16 @@ public class Kiralama {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "arac_id", nullable = false)
+    private Arac arac;
+
+    @ManyToOne
+    @JoinColumn(name = "musteri_id", nullable = false)
+    private Musteri musteri;
+
+    private LocalDate baslangicTarihi;
+    private LocalDate bitisTarihi;
+    private Double toplamUcret;
 }
