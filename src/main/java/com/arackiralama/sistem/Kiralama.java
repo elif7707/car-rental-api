@@ -20,7 +20,7 @@ public class Kiralama {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "arac_id", nullable = false)
+    @JoinColumn(name = "arac_id", nullable = false) // nullable = false means this column cannot be left blank
     private Arac arac;
 
     @ManyToOne
