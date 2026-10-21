@@ -14,5 +14,8 @@ public interface KiralamaRepository extends JpaRepository<Kiralama, Long>{
 
 // exists by: checks is there any record that fits to the condition, returns true or false
 // AracId: id of the car to be rented
+
+
 // BaslangicTarihiLessThanEqual: means BaslangicTarihi + LessThanEqual
-// BitisTarihiGreaterThanEqual:
+// BitisTarihiGreaterThanEqual: means BitisTarihi + GreaterThanEqual
+// Checks for date overlap: an existing rental of this car starts on or before the new end date AND ends on or after the new start date.
