@@ -41,6 +41,4 @@ public class SubeService {
         Sube silinecekSube = subeGetir(id);
         subeRepository.delete(silinecekSube);
     }
-
-
 }
