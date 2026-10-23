@@ -14,6 +14,7 @@ public class KiralamaService {
     private final KiralamaRepository kiralamaRepository;
     private final AracService aracService;
     private final MusteriService musteriService;
+    private final SubeService subeService;
 
     public List<Kiralama> tumKiralamalariGetir() {
         return kiralamaRepository.findAll();
@@ -23,6 +24,7 @@ public class KiralamaService {
         // 1-2. Araç ve müşteri var mı? Yoksa 404
         Arac arac = aracService.aracGetir(istek.getAracId());
         Musteri musteri = musteriService.musteriGetir(istek.getMusteriId());
+        Sube alisSubesi = subeService.subeGetir((istek.getAlisSubesiId()));
 
         // 3. Bitiş, başlangıçtan önce olamaz → 400
         if (istek.getBitisTarihi().isBefore(istek.getBaslangicTarihi())) {
@@ -44,13 +46,16 @@ public class KiralamaService {
         long gunSayisi = ChronoUnit.DAYS.between(istek.getBaslangicTarihi(), istek.getBitisTarihi()) + 1;
         double toplamUcret = gunSayisi * arac.getGunlukFiyat();
 
-        // 7. Kiralamayı oluştur ve kaydet
+        // 7. Create rental process and save.
+        // NOTE: Repositories save only entities, so we map the DTO (KiralamaIstegi) to a Kiralama entity first.
         Kiralama kiralama = new Kiralama();
         kiralama.setArac(arac);
         kiralama.setMusteri(musteri);
         kiralama.setBaslangicTarihi(istek.getBaslangicTarihi());
         kiralama.setBitisTarihi(istek.getBitisTarihi());
         kiralama.setToplamUcret(toplamUcret);
+        kiralama.setAlisSubesi(alisSubesi);
+
         return kiralamaRepository.save(kiralama);
     }
 }

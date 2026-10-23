@@ -12,4 +12,5 @@ public class KiralamaIstegi {
     private Long musteriId;
     private LocalDate baslangicTarihi;
     private LocalDate bitisTarihi;
+    private Long alisSubesiId;
 }

@@ -19,6 +19,7 @@ public class Kiralama {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Many is for Kiralama because its the name of the class, and One is for both arac and musteri.
     @ManyToOne
     @JoinColumn(name = "arac_id", nullable = false) // nullable = false means this column cannot be left blank
     private Arac arac;
@@ -27,7 +28,12 @@ public class Kiralama {
     @JoinColumn(name = "musteri_id", nullable = false)
     private Musteri musteri;
 
+    @ManyToOne
+    @JoinColumn(name = "alis_subesi_id", nullable = false)
+    private Sube alisSubesi;
+
     private LocalDate baslangicTarihi;
     private LocalDate bitisTarihi;
     private Double toplamUcret;
+
 }
