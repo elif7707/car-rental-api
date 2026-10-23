@@ -10,6 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class KiralamaService {
 
+    // Rental process needs the data of these three classes, that's why we created fields for them, Spring will fill these fields with objects. (dependency injection)
     private final KiralamaRepository kiralamaRepository;
     private final AracService aracService;
     private final MusteriService musteriService;
