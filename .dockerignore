@@ -1,0 +1,10 @@
+# Derleme çıktısı: Docker projeyi kendisi derliyor
+target/
+
+# IDE ve Git dosyaları: image için gereksiz
+.idea/
+*.iml
+.git/
+
+# Şifre içeren yerel ayarlar: ASLA imaja girmemeli
+src/main/resources/application-local.properties
