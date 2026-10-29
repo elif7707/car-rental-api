@@ -8,3 +8,6 @@ target/
 
 # Şifre içeren yerel ayarlar: ASLA imaja girmemeli
 src/main/resources/application-local.properties
+
+# Docker secret'ları: image'a girmemeli
+.env
