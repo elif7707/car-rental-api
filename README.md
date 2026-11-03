@@ -89,9 +89,26 @@ This file is listed in `.gitignore`, so your password is never committed.
 
 The `arackiralama` database is created automatically on first run.
 
+## Running with Docker
+
+Requirements: only Docker (Java, Maven and MySQL run inside containers).
+
+1. Create your `.env` file from the example and set a password:
+   ```
+   cp .env.example .env
+   ```
+2. Start the app and the database:
+   ```
+   docker compose up --build
+   ```
+3. The API is available at `http://localhost:8080`.
+
+The MySQL data is stored in a Docker volume, so it is kept when containers are removed.
+To stop: `Ctrl+C` or `docker compose down`. To also delete the data: `docker compose down -v`.
+
 ## Roadmap
 
 - [x] CRUD operations for all entities
 - [x] Error handling (404 for missing resources)
 - [ ] Rental feature linking customers, cars and branches
-- [ ] Docker support
+- [x] Running with Docker
