@@ -89,6 +89,32 @@ This file is listed in `.gitignore`, so your password is never committed.
 
 The `arackiralama` database is created automatically on first run.
 
+### Rentals
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/kiralamalar` | List all rentals |
+| POST | `/api/kiralamalar` | Create a rental |
+
+Example request:
+
+```json
+{
+  "aracId": 1,
+  "musteriId": 2,
+  "alisSubesiId": 1,
+  "baslangicTarihi": "2026-11-09",
+  "bitisTarihi": "2026-11-12"
+}
+```
+
+Rules:
+- The total price is calculated automatically: number of days (start and end included) × daily price.
+- The end date cannot be before the start date → `400`
+- The car must be available (`musaitMi = true`) → otherwise `409`
+- The car cannot be rented for overlapping dates → `409`
+- The car, customer and branch must exist → otherwise `404`
+
 ## Running with Docker
 
 Requirements: only Docker (Java, Maven and MySQL run inside containers).
@@ -110,5 +136,5 @@ To stop: `Ctrl+C` or `docker compose down`. To also delete the data: `docker com
 
 - [x] CRUD operations for all entities
 - [x] Error handling (404 for missing resources)
-- [ ] Rental feature linking customers, cars and branches
+- [x] Rental feature linking customers, cars and branches
 - [x] Running with Docker
