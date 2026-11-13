@@ -130,6 +130,18 @@ Requirements: only Docker (Java, Maven and MySQL run inside containers).
 3. The API is available at `http://localhost:8080`.
 
 The MySQL data is stored in a Docker volume, so it is kept when containers are removed.
+
+### Sample data
+
+When running with Docker, the database is filled with sample data on startup (`src/main/resources/data.sql`):
+3 branches, 5 cars (one of them not available), 3 customers and 2 rentals.
+
+You can try the API right away, for example `GET http://localhost:8080/api/araclar`.
+
+Sample data is only loaded in Docker (`SPRING_SQL_INIT_MODE: always` in `docker-compose.yml`).
+When running the app locally (e.g. from the IDE), your own database is not changed.
+Restarting the app does not create duplicates. To reset the database to the sample data, use `docker compose down -v`.
+
 To stop: `Ctrl+C` or `docker compose down`. To also delete the data: `docker compose down -v`.
 
 ## Roadmap
