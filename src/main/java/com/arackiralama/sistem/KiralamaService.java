@@ -16,11 +16,13 @@ public class KiralamaService {
     private final MusteriService musteriService;
     private final SubeService subeService;
 
-    public List<Kiralama> tumKiralamalariGetir() {
-        return kiralamaRepository.findAll();
+    public List<KiralamaCevabi> tumKiralamalariGetir() {
+        return kiralamaRepository.findAll().stream()
+                .map(this::cevabaDonustur)
+                .toList();
     }
 
-    public Kiralama kiralamaYap(KiralamaIstegi istek) {
+    public KiralamaCevabi kiralamaYap(KiralamaIstegi istek) {
         // 1-2. Araç ve müşteri var mı? Yoksa 404
         Arac arac = aracService.aracGetir(istek.getAracId());
         Musteri musteri = musteriService.musteriGetir(istek.getMusteriId());
@@ -56,6 +58,23 @@ public class KiralamaService {
         kiralama.setToplamUcret(toplamUcret);
         kiralama.setAlisSubesi(alisSubesi);
 
-        return kiralamaRepository.save(kiralama);
+        Kiralama kayitli = kiralamaRepository.save(kiralama);
+        return cevabaDonustur(kayitli);
+    }
+
+    private KiralamaCevabi cevabaDonustur(Kiralama kiralama) {
+        KiralamaCevabi cevap = new KiralamaCevabi();
+
+        cevap.setKiralamaId(kiralama.getId());
+        cevap.setAracMarka(kiralama.getArac().getMarka());
+        cevap.setAracModel(kiralama.getArac().getModel());
+        cevap.setMusteriAd(kiralama.getMusteri().getAd());
+        cevap.setMusteriSoyad(kiralama.getMusteri().getSoyad());
+        cevap.setSubeAdi(kiralama.getAlisSubesi().getSubeAdi());
+        cevap.setBaslangicTarihi(kiralama.getBaslangicTarihi());
+        cevap.setBitisTarihi(kiralama.getBitisTarihi());
+        cevap.setToplamUcret(kiralama.getToplamUcret());
+
+        return cevap;
     }
 }

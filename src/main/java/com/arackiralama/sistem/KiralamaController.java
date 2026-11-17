@@ -16,12 +16,12 @@ public class KiralamaController {
     }
 
     @GetMapping
-    public List<Kiralama> tumKiralamalariGetir(){
+    public List<KiralamaCevabi> tumKiralamalariGetir(){
         return kiralamaService.tumKiralamalariGetir();
     }
 
     @PostMapping
-    public Kiralama kiralamaYap(@RequestBody KiralamaIstegi istek){
+    public KiralamaCevabi kiralamaYap(@RequestBody KiralamaIstegi istek){
         return kiralamaService.kiralamaYap(istek);
     }
 
