@@ -100,13 +100,26 @@ Example request:
 
 ```json
 {
-  "aracId": 1,
-  "musteriId": 2,
-  "alisSubesiId": 1,
-  "baslangicTarihi": "2026-11-09",
-  "bitisTarihi": "2026-11-12"
+    "aracId": 3, "musteriId": 3, "alisSubesiId": 3,
+      "baslangicTarihi": "2026-12-20", "bitisTarihi": "2026-12-22" 
 }
 ```
+Example response:
+
+```json
+{
+     "aracMarka": "Toyota",
+     "aracModel": "Corolla",
+     "baslangicTarihi": "2026-12-20",
+     "bitisTarihi": "2026-12-22",
+     "kiralamaId": 3,
+     "musteriAd": "Zeynep",
+     "musteriSoyad": "Kaya",
+     "subeAdi": "Çankaya Şubesi",
+     "toplamUcret": 3600.0
+}
+```
+Rental endpoints return a response DTO (KiralamaCevabi) instead of the entity, so only the needed fields are exposed.
 
 Rules:
 - The total price is calculated automatically: number of days (start and end included) × daily price.
