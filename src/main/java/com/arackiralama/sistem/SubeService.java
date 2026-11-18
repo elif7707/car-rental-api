@@ -22,8 +22,14 @@ public class SubeService {
     }
 
 
-    public Sube subeEkle(Sube sube){
-        return subeRepository.save(sube); // Return the saved branch (şube) so the caller can get its generated id.
+    public Sube subeEkle(SubeIstegi istek){
+
+        Sube yeniSube = new Sube();
+        yeniSube.setAdres(istek.getAdres());
+        yeniSube.setSubeAdi(istek.getSubeAdi());
+        yeniSube.setSehir(istek.getSehir());
+
+        return subeRepository.save(yeniSube); // Return the saved branch (şube) so the caller can get its generated id.
     }
 
     public Sube subeGuncelle(Long id, Sube yeniSubeBilgileri){

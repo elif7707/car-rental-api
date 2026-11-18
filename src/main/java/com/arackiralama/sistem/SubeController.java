@@ -26,8 +26,8 @@ public class SubeController {
     }
 
     @PostMapping
-    public Sube subeEkle(@RequestBody Sube sube) {
-        return subeService.subeEkle(sube);
+    public Sube subeEkle(@RequestBody SubeIstegi istek) {
+        return subeService.subeEkle(istek);
     }
 
 
