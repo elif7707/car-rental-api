@@ -19,6 +19,7 @@ public class Sube {
     private Long id;
 
     @Column(name = "sube_adi") // Added to match the sube_adi column in the DB.
+
     private String subeAdi;
     private String sehir;
     private String adres;

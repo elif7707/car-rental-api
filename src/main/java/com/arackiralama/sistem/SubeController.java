@@ -1,8 +1,10 @@
 package com.arackiralama.sistem;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/subeler")
@@ -26,7 +28,7 @@ public class SubeController {
     }
 
     @PostMapping
-    public Sube subeEkle(@RequestBody SubeIstegi istek) {
+    public Sube subeEkle(@RequestBody @Valid SubeIstegi istek) {
         return subeService.subeEkle(istek);
     }
 
