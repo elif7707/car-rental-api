@@ -57,6 +57,22 @@ When a requested resource does not exist, the API returns `404 Not Found` with a
 
 This applies to `GET`, `PUT` and `DELETE` requests on `/api/araclar/{id}`, `/api/musteriler/{id}` and `/api/subeler/{id}`.
 
+
+When a request body is invalid, the API returns `400 Bad Request` with the invalid fields:
+
+```json
+{
+  "status": 400,
+  "errors": {
+    "subeAdi": "must not be blank",
+    "sehir": "must not be blank"
+  }
+}
+```
+
+Currently this applies to `POST /api/subeler`: `subeAdi`, `sehir` and `adres` are required.
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -163,3 +179,4 @@ To stop: `Ctrl+C` or `docker compose down`. To also delete the data: `docker com
 - [x] Error handling (404 for missing resources)
 - [x] Rental feature linking customers, cars and branches
 - [x] Running with Docker
+- [x] Request validation (branches)
